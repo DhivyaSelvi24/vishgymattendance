@@ -1,14 +1,14 @@
 .custom-box {
     -webkit-border-radius: 20px; /* Consistent border radius */
     border-radius: 20px;
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    background: rgba(0, 0, 0, 0.79); /* Semi-transparent black */
     padding: 20px; /* Adjusted padding for proper spacing */
     width: 100%; /* Make it responsive */
-    max-width: 650px; /* Ensures it doesn’t get too wide */
+    max-width: 500px; /* Ensures it doesn’t get too wide */
     height: auto; /* Adapts to content */
-    max-height: 850px; /* Prevents excessive height */
+    height:600px;
+    max-height: 800px;  /* Prevents excessive height */
     position: relative; 
-    -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     text-align: center;
     margin: auto; /* Centers the div */
@@ -20,13 +20,13 @@
     background: white;
     padding: 30px;
     width: 90%;
-    max-width: 450px;
+    max-width: 350px;
+    height: 600px;
+    max-height: 800px;
     position: relative;
     padding: 0px;
-    -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     text-align: center;
-    background: rgb(0, 0, 0);
     background: rgb(0, 0, 0, 0.9);
 }
 
@@ -78,3 +78,4 @@
 .textcontent{
 text-align: center;
 }
+
