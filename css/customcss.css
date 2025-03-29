@@ -1,11 +1,24 @@
+/* .custom-box {
+    position: relative;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.custom-box.show {
+    opacity: 1;
+    transform: translateX(0);
+} */
+
+
 .custom-box {
+     margin-top: 50px;
     -webkit-border-radius: 20px; /* Consistent border radius */
     border-radius: 20px;
     background: rgba(0, 0, 0, 0.79); /* Semi-transparent black */
     padding: 20px; /* Adjusted padding for proper spacing */
     width: 100%; /* Make it responsive */
-    max-width: 500px; /* Ensures it doesn’t get too wide */
-    height: auto; /* Adapts to content */
+    max-width: 900px; /* Ensures it doesn’t get too wide */
     height:600px;
     max-height: 800px;  /* Prevents excessive height */
     position: relative; 
@@ -15,12 +28,13 @@
 }
 
 .custombg{
+     margin-top: 50px;
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: white;
     padding: 30px;
-    width: 90%;
-    max-width: 350px;
+    width: 100%;
+    max-width: 400px;
     height: 600px;
     max-height: 800px;
     position: relative;
@@ -34,9 +48,9 @@
     background-color: #f6f6f6;
     border: 1px solid #ccc; /* Light gray border for better visibility */
     color: #0d0d0d;
-    padding: 8px 16px; /* Reduce padding to make it smaller */
+    padding: 10px 26px; /* Reduce padding to make it smaller */
     text-align: center;
-    font-size: 14px; /* Reduce font size */
+    font-size: 20px; /* Reduce font size */
     width: 20%; /* Reduce width */
     max-width: 200px; /* Ensure it doesn't get too wide */
     border-radius: 5px;
@@ -73,9 +87,19 @@
 .profile-pic {
     display: block;
     margin: 0 auto;
+    padding-bottom: 35px;
+    padding-top: 20px;
 }
 
 .textcontent{
 text-align: center;
 }
 
+.custombg img {
+    margin-top: 20px; /* Adjust the value as needed */
+}
+
+/* Moves the "Thank You" content down */
+.custom-box h3 {
+    margin-top: 40px; /* Adjust the value as needed */
+}

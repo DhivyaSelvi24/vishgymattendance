@@ -1,48 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GymManagement</title>
 
     <!-- ✅ Correct Bootstrap CSS Path -->
-    <link rel="stylesheet" href="css/bootstrap(1).min.css">    
-    <link rel="stylesheet" href="css/sb-admin.css">    
+    <link rel="stylesheet" href="css/bootstrap(1).min.css">
+    <link rel="stylesheet" href="css/sb-admin.css">
     <link rel="stylesheet" href="css/customcss.css">
+    <link rel="stylesheet" href="css/right_arrow_hover.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
 
 </head>
-<body style="background-color: black; color: white; background-image: url('/images/background.png');">
+
+<body style="background-color: black; color: white; background-image: url('images/background.png');">
 
     <div class="container mt-5">
         <div class="row" style="padding-left: 90px;">
             <!-- Left Side: Gym Logo & Input Field -->
             <div class="col-md-6 text-center custombg">
-                <img src="/images/logoq.png" alt="Gym Logo" class="img-fluid" width="200">
+                <img src="images/logoq.png" alt="Gym Logo" class="img-fluid" width="200">
 
                 <!-- Input Field (Now Below Logo) -->
-                <input type="text" placeholder="Enter ID" 
-                       class="form-control w-75 mx-auto mt-3 text-center id-input">
-                
+                <input type="text" placeholder="Enter ID" class="form-control w-75 mx-auto mt-3 text-center id-input">
+
                 <!-- Submit Button (Optional: Can Move It Below Input) -->
-                <button class="btn btn-primary mt-3 submit-id">ADD LOG</button>
+                <!-- <button class="btn btn-primary mt-3 submit-id">SUBMIT</button> -->
+                <!-- add log btn start -->
+                <div class="add_log_btn_block">
+                    <button class="add_log_btn">
+                        <span class="text">Add Log</span>
+                        <div class="icon-container">
+                            <div class="icon icon--left">
+                                <svg>
+                                    <use xlink:href="#arrow-right"></use>
+                                </svg>
+                            </div>
+                            <div class="icon icon--right">
+                                <svg>
+                                    <use xlink:href="#arrow-right"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </button>
+                    <svg style="display: none;">
+                        <symbol id="arrow-right" viewBox="0 0 20 10">
+                            <path d="M14.84 0l-1.08 1.06 3.3 3.2H0v1.49h17.05l-3.3 3.2L14.84 10 20 5l-5.16-5z"></path>
+                        </symbol>
+                    </svg>
+                </div>
+                <!-- add log btn end -->
             </div>
 
             <!-- Right Side: User Details -->
-            <div class="col-md-6 text-right custom-box"> 
+            <div class="col-md-6 text-right custom-box">
                 <h3 class="mt-3">THANK YOU, YOUR LOG IS ADDED</h3>
                 <img src="images/profile.png" alt="User Avatar" class="rounded-circle mt-3 profile-pic" width="200">
                 <div class="textcontent">
                     <h4 class="mt-3">HI VINOTH KUMAR S, WELCOME</h4>
-                <p style="color: red; font-size: 20px;">
-                    and you have <b>0 days</b> left in your pack.<br>
-                    your pack expires on <b>17/04/2023</b>.
-                </p>
+                    <p style="color: red; font-size: 20px;">
+                        and you have <b>0 days</b> left in your pack.<br>
+                        your pack expires on <b>17/04/2023</b>.
+                    </p>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -50,3 +76,14 @@
 </body>
 
 </html>
+
+<script>
+    $(document).ready(function () {
+        $(".add_log_btn_block").click(function () {
+            $(".custom-box").addClass("show");
+            setTimeout(function () {
+                $(".custom-box").removeClass("show");
+            }, 3000);
+        });
+    });
+</script>

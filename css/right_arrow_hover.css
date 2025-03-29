@@ -1,0 +1,88 @@
+.add_log_btn {
+    --width: 220px;
+    --height: 60px;
+    border: 0;
+    position: relative;
+    min-width: var(--width);
+    min-height: var(--height);
+    border-radius: var(--height);
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    background: rgba(95, 186, 233, 0.4);
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    gap: 15px;
+    margin-left: 90px; 
+    margin-top: 50px;
+    padding: 10px 40px;
+}
+
+.text,
+.icon-container {
+    position: relative;
+    z-index: 2;
+}
+
+.icon-container {
+    --icon-size: 25px;
+    position: relative;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    transition: transform 500ms ease;
+}
+
+.icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    transition: transform 500ms ease, opacity 250ms ease;
+}
+
+.icon--left {
+    transform: translateX(-200%);
+    opacity: 0;
+}
+
+.icon svg {
+    width: 100%;
+    height: 100%;
+    fill: #fff;
+}
+
+.add_log_btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--btn-bg, #4fa3d1);
+    border-radius: var(--height);
+    z-index: 1;
+    transition: transform 500ms ease;
+}
+
+.add_log_btn:hover::after {
+    transform: translateX(65%);
+}
+
+.add_log_btn:hover .icon-container {
+    transform: translateX(125%);
+}
+
+.add_log_btn:hover .icon--left {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.add_log_btn:hover .icon--right {
+    transform: translateX(200%);
+    opacity: 0;
+}
