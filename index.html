@@ -59,15 +59,15 @@
 
             <!-- Right Side: User Details -->
             <div class="col-md-6 text-center custom-box" style="margin-top: 128px; height: 600px; margin-left: 149px;">
-                <h3 class="" style="margin-top: 61px !important">THANK YOU, YOUR LOG IS ADDED</h3>
-                <img src="images/profile.png" alt="User Avatar" class="rounded-circle profile-pic" width="200">
+                <h3 class="log_added_text" style="margin-top: 61px !important">THANK YOU, YOUR LOG IS ADDED</h3>
+                <img src="images/profile.png" id="img_avatar" alt="User Avatar" class="rounded-circle profile-pic  avatar-img" width="200">
                 <div class="textcontent" style="position: relative; top: -36px;">
                     <h3 class="">HI VINOTH KUMAR S, WELCOME</h3>
-                    <h4 style="font-weight: normal;">Train hard, stay strong. 💪🔥</h4>
                     <p style="color: red; font-size: 20px;">
                         and you have <b>0 days</b> left in your pack.<br>
                         your pack expires on <b>17/04/2023</b>.
                     </p>
+                    <h4 style="font-weight: normal;">Train hard, stay strong. 💪🔥</h4>
                 </div>
 
             </div>
@@ -80,11 +80,81 @@
 
 <script>
     $(document).ready(function () {
+        // Hardcoded user data
+        const users = {
+            1000: { gender: "male", name: "Vinoth Kumar S", days_left: 0, expiry_date: "17/04/2023" },
+            2000: { gender: "female", name: "Priya Sharma", days_left: 5, expiry_date: "22/04/2023" },
+            3000: { gender: "male", name: "Arjun Mehta", days_left: 10, expiry_date: "27/04/2023" }
+        };
+
+        // Motivational gym quotes array
+        const gymQuotes = [
+            "🏋️ Lift heavy, stay strong.",
+            "🔥 Sweat more, grow stronger.",
+            "💪 No pain, no gain.",
+            "🏆 Push limits, break barriers.",
+            "⚡ Strength comes from struggle.",
+            "Train hard, stay strong. 💪🔥"
+        ];
+
         $(".add_log_btn_block").click(function () {
-            $(".custom-box").addClass("show");
-            setTimeout(function () {
-                $(".custom-box").removeClass("show");
-            }, 3000);
+            // Get user ID from input field
+            const userId = $(".id-input").val().trim();
+
+            // Check if user ID exists in data
+            if (users[userId]) {
+                const userData = users[userId];
+
+                // Randomly select a gym quote
+                const randomQuote = gymQuotes[Math.floor(Math.random() * gymQuotes.length)];
+
+                // Fill user data
+                $(".custom-box .textcontent h3").text(`HI ${userData.name}, WELCOME`);
+                $(".custom-box .textcontent h4").text(randomQuote);
+
+                // Update days left and expiry date
+                const daysLeftText = `and you have <b>${userData.days_left} days</b> left in your pack.<br> your pack expires on <b>${userData.expiry_date}</b>.`;
+
+                // Change text color if days left is 0
+                if (userData.days_left === 0) {
+                    $(".custom-box .textcontent p").html(daysLeftText).css("color", "red");
+                } else {
+                    $(".custom-box .textcontent p").html(daysLeftText).css("color", "white");
+                }
+                $(".log_added_text").text("THANK YOU, YOUR LOG IS ADDED");
+
+                if (userData.gender == "male") {
+                    $(".avatar-img").attr("src", "images/profile.png");
+                }
+                else {
+                    $(".avatar-img").attr("src", "images/girl.png");
+                }
+                document.getElementById("img_avatar").classList = "rounded-circle profile-pic  avatar-img";
+
+                // Show the box
+                $(".custom-box").addClass("show");
+
+                // Hide after 3 seconds
+                setTimeout(function () {
+                    $(".custom-box").removeClass("show");
+                }, 3000);
+            } else {
+                // Show "User ID not found!" in red
+                $(".avatar-img").attr("src", "images/user_id_not_found.webp");
+                $(".custom-box .textcontent h3").text("User ID not found!").css("color", "red");
+                $(".custom-box .textcontent h4").text("");
+                $(".custom-box .textcontent p").text("");
+                $(".log_added_text").text("");
+                document.getElementById("img_avatar").classList = "profile-pic  avatar-img";
+
+                // Show the box
+                $(".custom-box").addClass("show");
+
+                // Hide after 3 seconds
+                setTimeout(function () {
+                    $(".custom-box").removeClass("show");
+                }, 3000);
+            }
         });
     });
 </script>

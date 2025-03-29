@@ -1,14 +1,14 @@
-/* .custom-box {
+.custom-box {
     position: relative;
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(-50%);
     transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
 
 .custom-box.show {
     opacity: 1;
     transform: translateX(0);
-} */
+}
 
 
 .custom-box {
